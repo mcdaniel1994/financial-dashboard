@@ -38,3 +38,57 @@ The scripts in `frontend/package.json` also confirm the Vite setup. For example,
 ```json
 "dev": "vite",
 "build": "tsc -b && vite build"
+```
+
+## Agent Skills Validation
+
+The agent skills assignment work installed and used these reusable skills:
+
+```text
+.agents/skills/accessibility
+.agents/skills/vercel-react-best-practices
+.agents/skills/webapp-testing
+```
+
+The additional selected skill was `webapp-testing`, chosen because the memory bank already identified validation and testing as important follow-up work.
+
+The custom project-specific skill was added at:
+
+```text
+.agents/skills/financial-dashboard-review/SKILL.md
+```
+
+After syncing with the latest `main`, the branch also includes the frontend planning specs in:
+
+```text
+frontend/specs
+```
+
+The custom skill references those specs so future dashboard work can stay aligned with the planned API contracts and component behavior.
+
+One small spec cleanup was needed after syncing with `main`: direct array responses in `frontend/specs/api-types.ts` were changed from empty interfaces to type aliases so the existing ESLint rules pass.
+
+## Latest Checks
+
+Frontend checks passed:
+
+```bash
+npm run lint
+npm test
+npx tsc -b --noEmit
+npm run build
+```
+
+Backend checks passed through the existing backend virtual environment:
+
+```bash
+backend/.venv/bin/python -m pytest
+```
+
+The backend test result was:
+
+```text
+15 passed
+```
+
+The browser smoke test rendered the dashboard with local backend data. Python Playwright was not installed, so the smoke test used headless Chrome rather than the `webapp-testing` skill's Python Playwright helper path.

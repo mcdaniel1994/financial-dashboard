@@ -55,3 +55,20 @@ This would help prevent future installs from pulling unexpected package versions
 The `.agents/rules` files should stay tied to the actual repo.
 
 If the project structure, testing setup, API design, or configuration changes later, the rules should be updated so future AI assistants and developers are not working from stale guidance.
+
+## 7. Investigate Frontend Bundle Size
+
+The frontend build currently passes but reports a Vite chunk-size warning.
+
+Future work should inspect whether the warning is mostly caused by charting or icon dependencies, then decide whether code splitting or dependency import changes are worth the complexity for this project.
+
+## 8. Expand Browser-Level Validation
+
+The latest smoke test confirmed that the dashboard renders with backend data.
+
+Future work could add a repeatable browser test that checks:
+
+- KPI values render after data loads.
+- Chart sections render without console errors.
+- Error state appears when the backend is unavailable.
+- Screen-reader-only chart data tables are present in the DOM.

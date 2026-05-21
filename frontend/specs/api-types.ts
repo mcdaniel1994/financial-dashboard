@@ -64,7 +64,7 @@ export interface AlertEntry {
  * Response returned by GET /api/metrics/alerts.
  * The backend returns the array directly.
  */
-export interface AlertsResponse extends Array<AlertEntry> {}
+export type AlertsResponse = AlertEntry[];
 
 /**
  * Single top category item returned by GET /api/metrics/categories/top.
@@ -92,4 +92,4 @@ export interface CategoryEntry {
  * Response returned by GET /api/metrics/categories/top.
  * The backend returns the array directly.
  */
-export interface TopCategoriesResponse extends Array<CategoryEntry> {}
+export type TopCategoriesResponse = CategoryEntry[];
