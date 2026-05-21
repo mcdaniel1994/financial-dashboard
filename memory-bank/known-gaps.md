@@ -58,3 +58,19 @@ Future contributors who are not using Docker may need clearer instructions for:
 - Running backend tests
 - Running frontend tests
 - Accessing the API docs
+
+## Frontend Bundle Size Warning
+
+The frontend production build passes, but Vite reports that one generated JavaScript chunk is larger than 500 kB after minification.
+
+This is not currently a build failure. It is most likely related to dashboard visualization and icon dependencies such as Recharts and Lucide.
+
+Future work could investigate whether route-level code splitting, chart lazy loading, or safer package import optimization would reduce the bundle size without making the small dashboard harder to maintain.
+
+## Browser Testing Tooling
+
+The selected additional skill, `webapp-testing`, expects Python Playwright to be available for local browser automation.
+
+Python Playwright was not installed in the available Python environments during the latest validation pass, so the browser smoke test used headless Chrome directly instead.
+
+Future contributors can either install Playwright in an intentional local/testing environment or keep using another documented browser smoke-test path.
